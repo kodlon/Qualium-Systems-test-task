@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 35517425}
   - component: {fileID: 35517424}
   - component: {fileID: 35517423}
+  - component: {fileID: 35517426}
   m_Layer: 0
   m_Name: GameOverMenu
   m_TagString: Untagged
@@ -222,6 +223,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &35517426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 35517421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac9e888ff57d36b4aa1bf27cc533d73d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &76724091
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +317,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2125605230}
+      - m_Target: {fileID: 35517426}
         m_MethodName: ExitButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -434,7 +447,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2125605230}
+      - m_Target: {fileID: 35517426}
         m_MethodName: RestartButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -2046,7 +2059,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c55848c46bd7ae47b0710c75ba12e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 2058839302}
 --- !u!1 &2125605227
 GameObject:
   m_ObjectHideFlags: 0
@@ -2106,4 +2118,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 2058839304}
   gameOverMenu: {fileID: 35517425}
-  ballBody: {fileID: 1837672136}
