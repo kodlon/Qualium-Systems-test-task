@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] private TMP_Text timer;
+    private TMP_Text timer;
 
     private float time;
     private float msec;
@@ -14,9 +14,10 @@ public class Timer : MonoBehaviour
 
     public void StartTimer()
     {
+        timer = this.GetComponent<TMP_Text>();
         StartCoroutine(TimerProcessing());
-    }    
-    
+    }
+
     public void StopTimer()
     {
         StopAllCoroutines();
