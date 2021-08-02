@@ -191,11 +191,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -1610,6 +1610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b73875a35434b3740b9e6a1ac3b4fce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationLimit: 30
 --- !u!65 &1938539472
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1754,11 +1755,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -1799,6 +1800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timer: {fileID: 2058839304}
   ballBody: {fileID: 1837672136}
+  platform: {fileID: 1938539471}
 --- !u!1 &2025363923
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,11 +1869,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -2102,5 +2104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e13a9ae80cbda64496188241bab1d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timer: {fileID: 2058839304}
   gameOverMenu: {fileID: 35517425}
   ballBody: {fileID: 1837672136}

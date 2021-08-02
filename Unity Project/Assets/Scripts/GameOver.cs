@@ -10,6 +10,7 @@ public class GameOver : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        StartGame.GameActive = false;
         gameOverMenu.gameObject.SetActive(true);
         ballBody.useGravity = false;
         ballBody.velocity = Vector3.zero;
