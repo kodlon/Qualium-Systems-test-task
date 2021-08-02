@@ -2,28 +2,41 @@
 
 public class PlatformControl : MonoBehaviour
 {
-    private const float SPEED_ROTATE = 150;
+    private const float SPEED_ROTATE = 250;
 
-    float xRotation = 0;
-    float yRotation = 0;
+    [SerializeField] private float rotationLimit = 30f;
+    private float xRotation;
+    private float yRotation;
+
+    private Quaternion calibrationQuaternion;
 
 
     void FixedUpdate()
     {
-        MoveAcceleration();
+        if (StartGame.GameActive)
+            MoveAcceleration();
     }
 
     private void MoveAcceleration()
     {
-        float xAxis = Input.acceleration.x;
-        float yAxis = Input.acceleration.y;
+        Vector3 fixedAcceleration = FixAcceleration(Input.acceleration);
 
-        yRotation += (yAxis * SPEED_ROTATE) * Time.fixedDeltaTime;
-        yRotation = Mathf.Clamp(yRotation, -30f, 30f);
+        xRotation += (-fixedAcceleration.x * SPEED_ROTATE) * Time.fixedDeltaTime;
+        xRotation = Mathf.Clamp(xRotation, -rotationLimit, rotationLimit);
 
-        xRotation += (xAxis * SPEED_ROTATE) * Time.fixedDeltaTime;
-        xRotation = Mathf.Clamp(xRotation, -30f, 30f);
+        yRotation += ((fixedAcceleration.y) * SPEED_ROTATE) * Time.fixedDeltaTime;
+        yRotation = Mathf.Clamp(yRotation, -rotationLimit, rotationLimit);
 
-        transform.rotation = Quaternion.Euler(yRotation, 0, -xRotation);
+
+        transform.rotation = Quaternion.Euler(yRotation, 0, xRotation);
     }
+
+    public void CalibrateAccelerometer()
+    {
+        Quaternion rotateQuanternion = Quaternion.FromToRotation(new Vector3(0f, 0f, -1f),
+                                                                 Input.acceleration);
+        calibrationQuaternion = Quaternion.Inverse(rotateQuanternion);
+    }
+
+    private Vector3 FixAcceleration(Vector3 acceleration) => calibrationQuaternion * acceleration;
 }
