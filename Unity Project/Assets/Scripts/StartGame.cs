@@ -8,17 +8,17 @@ public class StartGame : MonoBehaviour
 
     public static bool GameActive = false;
 
+
+    /// <summary>
+    /// Used to begin game. GameActive, calibrate, ball physics, timer.
+    /// </summary>
     public void StartButtonPressed()
     {
         GameActive = true;
         platform.CalibrateAccelerometer();
-        GameStarted();
-    }
-
-    private void GameStarted()
-    {
-        this.gameObject.SetActive(false);
         ballBody.useGravity = true;
         timer.StartTimer();
+
+        this.gameObject.SetActive(false);
     }
 }

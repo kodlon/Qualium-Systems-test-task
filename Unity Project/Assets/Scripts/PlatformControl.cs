@@ -11,12 +11,15 @@ public class PlatformControl : MonoBehaviour
     private Quaternion calibrationQuaternion;
 
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (StartGame.GameActive)
             MoveAcceleration();
     }
 
+    /// <summary>
+    /// Controls of the platform with a calibrated accelerometer.
+    /// </summary>
     private void MoveAcceleration()
     {
         Vector3 fixedAcceleration = FixAcceleration(Input.acceleration);
@@ -31,6 +34,9 @@ public class PlatformControl : MonoBehaviour
         transform.rotation = Quaternion.Euler(yRotation, 0, xRotation);
     }
 
+    /// <summary>
+    /// Initial calibration of the smartphone.
+    /// </summary>
     public void CalibrateAccelerometer()
     {
         Quaternion rotateQuanternion = Quaternion.FromToRotation(new Vector3(0f, 0f, -1f),
@@ -38,5 +44,11 @@ public class PlatformControl : MonoBehaviour
         calibrationQuaternion = Quaternion.Inverse(rotateQuanternion);
     }
 
-    private Vector3 FixAcceleration(Vector3 acceleration) => calibrationQuaternion * acceleration;
+    /// <summary>
+    ///  Return calibrated acceleration.
+    /// </summary>
+    private Vector3 FixAcceleration(Vector3 acceleration)
+    {
+        return calibrationQuaternion * acceleration;
+    }
 }

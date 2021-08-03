@@ -11,13 +11,18 @@ public class Timer : MonoBehaviour
     private float sec;
     private float min;
 
-
+    /// <summary>
+    /// Start timer coroutine.
+    /// </summary>
     public void StartTimer()
     {
         timer = this.GetComponent<TMP_Text>();
         StartCoroutine(TimerProcessing());
     }
 
+    /// <summary>
+    /// Stop timer coroutine.
+    /// </summary>
     public void StopTimer()
     {
         StopAllCoroutines();
@@ -25,7 +30,7 @@ public class Timer : MonoBehaviour
 
     private IEnumerator TimerProcessing()
     {
-        for (; ; )
+        while (true)
         {
             time += Time.deltaTime;
             msec = (int)((time - (int)time) * 100);

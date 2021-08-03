@@ -6,14 +6,18 @@ public class GameOverZone : MonoBehaviour
     [SerializeField] Canvas gameOverMenu;
 
 
+    /// <summary>
+    /// Used to end game. GameActive, ball freezing, timer.
+    /// </summary>
     private void OnTriggerEnter(Collider other)
     {
         StartGame.GameActive = false;
         gameOverMenu.gameObject.SetActive(true);
-        timer.StopTimer();
 
         Rigidbody ballBody = other.GetComponent<Rigidbody>();
         ballBody.useGravity = false;
         ballBody.velocity = Vector3.zero;
+
+        timer.StopTimer();
     }
 }

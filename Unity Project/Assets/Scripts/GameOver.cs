@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Restart and Exit buttons function.
+/// </summary>
 public class GameOver : MonoBehaviour
 {
     public void RestartButtonPressed()
